@@ -22,11 +22,13 @@ Windows -
 ```sh
 mkdir out
 cd out
-cmake -G "Visual Studio 15 2017 Win64" ..
+cmake -G "Visual Studio 17 2022" ..
 msbuild ALL_BUILD.vcxproj /p:Configuration=Release
 ```
 
 This SDK is known to work with these CMake generators:
+* Visual Studio 17 2022
+* Visual Studio 16 2019
 * Visual Studio 15 2017 Win64
 * Visual Studio 14 2015 Win64
 * Visual Studio 12 2013 Win64
@@ -63,12 +65,12 @@ To build the server SDK libraries using the C++ standard library, use the usual 
 ```sh
 mkdir out
 cd out
-cmake -G "Visual Studio 14 2015 Win64" ..
+cmake -G "Visual Studio 17 2022" ..
 msbuild ALL_BUILD.vcxproj /p:Configuration=Release
 ```
 This implies the use of the default -DGAMELIFT_USE_STD=1 flag. To turn off the dependency with the C++ std:: library, the following cmake command should be substituted.
 
-    cmake -G "Visual Studio 14 2015 Win64" -DGAMELIFT_USE_STD=0 ..
+    cmake -G "Visual Studio 17 2022" -DGAMELIFT_USE_STD=0 ..
 
 Whether or not the C++ standard library should be used is generally a matter of preference, but there are some considerations.
 

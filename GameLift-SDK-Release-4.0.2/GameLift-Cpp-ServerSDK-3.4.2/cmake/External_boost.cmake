@@ -50,6 +50,10 @@ if(use_bat)
     set(_toolset "msvc-14.0")
   elseif(MSVC15)
     set(_toolset "msvc-14.1")
+  elseif(MSVC16)
+    set(_toolset "msvc-14.2")
+  elseif(MSVC17)
+    set(_toolset "msvc-14.3")
   endif()
 
   if(CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -76,8 +80,8 @@ endif(use_bat)
 
 ExternalProject_Add(boost
   DOWNLOAD_DIR ${download_dir}
-  URL http://download.sourceforge.net/project/boost/boost/1.64.0/boost_1_64_0.zip
-  URL_MD5 36093e4018aecd5b0e31e80457ac5fc1
+  URL http://download.sourceforge.net/project/boost/boost/1.79.0/boost_1_79_0.zip
+  URL_MD5 ca5f9fa5d6ef7d2e8f2006cc83bc556d
   SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/boost"
   INSTALL_DIR "${GameLiftServerSdk_INSTALL_PREFIX}"
   ${boost_cmds}

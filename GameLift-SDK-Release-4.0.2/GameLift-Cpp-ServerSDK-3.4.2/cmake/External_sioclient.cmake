@@ -1,15 +1,15 @@
 unset(_deps)
-add_optional_deps(_deps "boost")
 
 get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
 
 if(UNIX)
     ExternalProject_Add(sioclient
       GIT_REPOSITORY https://github.com/socketio/socket.io-client-cpp.git
-      GIT_TAG 1.6.1
+      GIT_TAG 3.1.0
       GIT_SUBMODULES
         lib/websocketpp
         lib/rapidjson
+        lib/asio
       SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/sioclient"
       INSTALL_DIR "${GameLiftServerSdk_INSTALL_PREFIX}"
       PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
@@ -25,10 +25,11 @@ if(UNIX)
 elseif(WIN32)
     ExternalProject_Add(sioclient-src
        GIT_REPOSITORY https://github.com/socketio/socket.io-client-cpp.git
-       GIT_TAG 1.6.1
+       GIT_TAG 3.1.0
        GIT_SUBMODULES
         lib/websocketpp
         lib/rapidjson
+        lib/asio
        SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/sioclient"
        UPDATE_COMMAND ""
        PATCH_COMMAND ""
